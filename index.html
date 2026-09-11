@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>LAST FRAME - VR Bowling</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<style>
+  html, body { margin:0; padding:0; height:100%; background:#0b0d12; overflow:hidden;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  #c { position:fixed; inset:0; display:block; }
+  #overlay { position:fixed; inset:0; display:flex; flex-direction:column; align-items:center;
+    justify-content:center; gap:18px; background:radial-gradient(ellipse at 50% 40%, #141824 0%, #0b0d12 70%);
+    color:#e8e4da; z-index:10; transition:opacity .5s; text-align:center; }
+  #overlay.hidden { opacity:0; pointer-events:none; }
+  #overlay h1 { font-size:44px; letter-spacing:14px; margin:0; font-weight:600; color:#e8e4da; }
+  #overlay h1 .dot { color:#c8332b; }
+  #overlay p.sub { margin:0; color:#8b8fa0; letter-spacing:3px; font-size:13px; }
+  #overlay .controls { font-size:12px; line-height:1.9; color:#6f7488; letter-spacing:1px; }
+  #overlay .controls b { color:#b9bdc9; font-weight:600; }
+  #enterRow { display:flex; gap:14px; margin-top:8px; }
+  button { font:inherit; font-size:13px; letter-spacing:3px; padding:12px 26px; cursor:pointer;
+    background:#1a1f2e; color:#e8e4da; border:1px solid #3a4056; border-radius:4px; }
+  button:hover { background:#232939; border-color:#5a6280; }
+  #vrBtn { display:none; border-color:#c8332b; }
+  #hud { position:fixed; top:14px; left:16px; color:#cfd3dd; font-size:13px; letter-spacing:1px;
+    z-index:5; pointer-events:none; text-shadow:0 1px 3px #000; display:none; line-height:1.7; white-space:pre; }
+  #hint { position:fixed; bottom:14px; left:0; right:0; text-align:center; color:#6f7488; font-size:12px;
+    letter-spacing:2px; z-index:5; pointer-events:none; display:none; }
+  #cross { position:fixed; top:50%; left:50%; width:5px; height:5px; margin:-2px 0 0 -2px; border-radius:50%;
+    background:#e8e4da; opacity:.55; z-index:5; pointer-events:none; display:none; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="overlay">
+  <h1>LAST FRAME<span class="dot">.</span></h1>
+  <p class="sub">A MIDNIGHT LANE - TEN FRAMES - NO CROWD</p>
+  <div class="controls">
+    <b>QUEST 3</b> &nbsp;enter vr - grip or trigger to grab the ball - swing and release<br>
+    left stick moves on the approach - right stick snaps your turn<br>
+    <b>DESKTOP</b> &nbsp;click to lock the mouse - wasd to move<br>
+    click the ball to pick it up - flick the mouse and release to throw
+  </div>
+  <div id="enterRow">
+    <button id="vrBtn">ENTER VR</button>
+    <button id="playBtn">PLAY ON DESKTOP</button>
+  </div>
+</div>
+<div id="hud"></div>
+<div id="hint"></div>
+<div id="cross"></div>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
