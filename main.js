@@ -128,7 +128,7 @@ const GUTTER_X = 0.648;
 const FOUL_Z = 0.8;            // foul line; lane surface runs toward -z
 const HEAD_Z = -17.0;          // head pin
 const PIT_Z = -19.5;
-const RACK_POS = new THREE.Vector3(0.55, 1.02, 1.8);
+const RACK_POS = new THREE.Vector3(0.74, 0.92, 1.75);
 const M_BALL = 6.8, M_PIN = 1.6;
 
 // lane geometry: player stands at +z, throws toward -z
@@ -321,8 +321,8 @@ scene.add(world);
     new THREE.MeshStandardMaterial({ color: 0x1c202b, roughness: 0.5, metalness: 0.4 }));
   ped.position.set(RACK_POS.x, pedH / 2, RACK_POS.z);
   world.add(ped);
-  const cup = new THREE.Mesh(new THREE.TorusGeometry(0.125, 0.028, 10, 24),
-    new THREE.MeshStandardMaterial({ color: 0xc8332b, roughness: 0.4, metalness: 0.2 }));
+  const cup = new THREE.Mesh(new THREE.TorusGeometry(0.115, 0.02, 10, 24),
+    new THREE.MeshStandardMaterial({ color: 0x7e2a24, roughness: 0.7, metalness: 0.1 }));
   cup.rotation.x = Math.PI / 2;
   cup.position.set(RACK_POS.x, RACK_POS.y - 0.1, RACK_POS.z);
   world.add(cup);
